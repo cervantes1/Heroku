@@ -4,7 +4,6 @@ import pandas as pd
 import json
 
 app = Flask(__name__)
-app.config['DEBUG'] = True
 api = Api(app)
 
 @app.route("/")
