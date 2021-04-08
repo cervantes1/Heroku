@@ -34,6 +34,8 @@
 #     print("Testing")
  
 from flask import Flask 
+from flask_restful import Resource, Api, reqparse
+import json 
 
 app = Flask(__name__)
 
@@ -41,5 +43,15 @@ app = Flask(__name__)
 def home():
     return "Hi"
 
+class properties(Resource):
+    def get(self):
+        with open('Data/data.json') as f:
+            data = json.load(f)
+
+        return {'Properties': data}, 200
+
+
+
+app.add_resource(properties, '/properties')
 if __name__ == '__main__':
     app.run()
