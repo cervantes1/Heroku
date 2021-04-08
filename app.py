@@ -43,6 +43,16 @@ app = Flask(__name__)
 def home():
     return "Hi"
 
+@app.route('/properties/<record>', methods=['GET'])
+def get_records(record):
+    with open('Data/data.json') as f:
+        data = json.load(f)
+
+    if record in data:
+        return {record : data[record]}, 200
+
+
+
 @app.route('/properties')
 def properties():
     with open('Data/data.json') as f:
