@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask, jsonify
 import json 
 
 app = Flask(__name__)
@@ -20,8 +20,8 @@ def properties():
     with open('Data/data.json') as f:
         data = json.load(f)
 
-    s1 = json.dumps(data, indent=4, sort_keys=True)
-    return {'Properties': s1}, 200  
+    # s1 = json.dumps(data, indent=4, sort_keys=True)
+    return {'Properties': Flask.jsonify(data)}, 200  
 
 if __name__ == '__main__':
     app.run()
