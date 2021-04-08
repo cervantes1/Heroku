@@ -20,9 +20,7 @@ def properties():
     with open('Data/data.json') as f:
         data = json.load(f)
 
-    response = jsonify(data)
-    return jsonify(data)
-    # return {'Properties': data}, 200  
+    return {'Properties': data}, 200  
 
 if __name__ == '__main__':
     app.run()
