@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Hi"
+    return "Properties"
 
 @app.route('/properties/<record>', methods=['GET'])
 def get_records(record):
@@ -20,8 +20,8 @@ def properties():
     with open('Data/data.json') as f:
         data = json.load(f)
 
-    # s1 = json.dumps(data, indent=4, sort_keys=True)
-    return {'Properties': Flask.jsonify(data)}, 200  
+    response = jsonify(data)
+    return {'Properties': response}, 200  
 
 if __name__ == '__main__':
     app.run()
