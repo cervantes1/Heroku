@@ -13,7 +13,7 @@ def hello():
 
 @app.route('/properties/<record>', methods=['GET'])
 def get_records(record):
-    with open('../flask/Data/data.json') as f:
+    with open('Data/data.json') as f:
         data = json.load(f)
 
     if record in data:
@@ -21,7 +21,7 @@ def get_records(record):
 
 class properties(Resource):
     def get(self):
-        with open('../flask/Data/data.json') as f:
+        with open('Data/data.json') as f:
             data = json.load(f)
 
         return {'Properties': data}, 200
