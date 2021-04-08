@@ -21,7 +21,8 @@ def properties():
         data = json.load(f)
 
     response = jsonify(data)
-    return {'Properties': data}, 200  
+    return jsonify(data)
+    # return {'Properties': data}, 200  
 
 if __name__ == '__main__':
     app.run()
