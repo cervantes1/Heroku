@@ -17,11 +17,9 @@ def properties():
     return jsonify({'Properties': data}), 200  
 
 
+@app.route('/properties/<record>', methods=['GET'])
+def get_records(record):
 
-@app.route('/properties', methods=['GET'])
-def get_records():
-
-    record = request.args.get('address')
     print(record)
 
     with open('Data/data.json') as f:
@@ -29,18 +27,6 @@ def get_records():
 
     if record in data:
         return jsonify({record : data[record]}), 200
-
-
-# @app.route('/properties/<record>', methods=['GET'])
-# def get_records(record):
-
-#     print(record)
-
-#     with open('Data/data.json') as f:
-#         data = json.load(f)
-
-#     if record in data:
-#         return jsonify({record : data[record]}), 200
 
 
 if __name__ == '__main__':
